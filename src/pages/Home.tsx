@@ -4,119 +4,117 @@ import CTA from "../components/CTA";
 import { siteConfig } from "../content/site.config";
 import { pageTitle } from "../lib/seo";
 
-// Step 7 — FAQPage JSON-LD (homepage-specific, not from config FAQ)
 const HOME_FAQ_JSONLD = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
     {
       "@type": "Question",
-      name: "How to export from Malaysia to Japan?",
+      name: "What is included in a Japan market entry consultation?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Exporting to Japan requires regulatory mapping, documentation compliance, distributor alignment and pre-shipment validation.",
+        text: "The consultation covers product-market fit evaluation, entry channel options, distributor pathway assessment, regulatory and labeling requirements, timeline estimation, and entry cost framing.",
       },
     },
     {
       "@type": "Question",
-      name: "What are Japan import requirements for Malaysian products?",
+      name: "Is the consultation really free?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Requirements vary by sector but include customs documentation, labelling compliance and adherence to Japan's import regulations.",
+        text: "Yes. The initial consultation is provided at no charge. It is a qualification step to assess whether your product and company are at a stage where a Japan entry engagement would produce results.",
       },
     },
     {
       "@type": "Question",
-      name: "How does Malaysia–Japan FTA reduce tariffs?",
+      name: "What happens after the consultation?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Tariff reductions apply when exporters meet rules of origin requirements and submit valid certification documentation.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What compliance is required for Japan supermarkets?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Supermarket entry requires product labelling compliance, distributor capability validation and documentation verification.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How to assess export readiness for Japan market?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Export readiness assessment evaluates regulatory alignment, operational capacity and channel preparedness before shipment.",
+        text: "You receive a decision memo summarising fit assessment, entry pathway options, risk flags, and recommended next steps. There is no obligation to proceed further.",
       },
     },
   ],
 };
 
-const HOW_WE_WORK = [
+const CONSULTATION_COVERS = [
+  "Market fit evaluation against Japan's B2B channel structure.",
+  "Channel structure clarity — distributor, direct import, or trade show path.",
+  "Distributor pathway assessment based on product category and pricing.",
+  "Regulatory and labeling risk review for Japan market compliance.",
+  "Timeline estimation across a realistic first-phase entry sequence.",
+  "Entry cost framing by entry model — distributor, direct, or trade show.",
+];
+
+const FOR_LIST = [
+  "Malaysian SMEs with export-ready products seeking Japan channel clarity.",
+  "ASEAN manufacturers exploring Japan as a target B2B market.",
+  "Companies evaluating distributor-based entry before committing to search.",
+];
+
+const NOT_FOR_LIST = [
+  "Companies without export capability or compliant documentation.",
+  "Purely retail-only ambitions without a B2B distribution pathway.",
+  "Early-stage idea validation without product readiness.",
+];
+
+const RISK_ITEMS = [
   {
-    step: "1",
-    title: "Initial Assessment",
-    body: "We review your product, pricing, certifications, and target channel to determine Japan market fit before any commitment.",
+    title: "Product Compliance Review",
+    body: "Assessment of labeling requirements, allergen declarations, and category-specific certification gaps that would prevent Japan market entry.",
   },
   {
-    step: "2",
-    title: "Market Mapping",
-    body: "We identify the relevant distributor categories, regulatory requirements, and trade channels specific to your product.",
+    title: "Channel Mismatch Risks",
+    body: "Review of whether your target channel — supermarket, specialty retail, or B2B distributor — aligns with product format, pricing, and MOQ.",
   },
   {
-    step: "3",
-    title: "Distributor Identification",
-    body: "We shortlist and approach qualified Japan-side partners using our established network and direct outreach.",
+    title: "Budget Underestimation Patterns",
+    body: "Common cost gaps including translation, labeling redesign, Japan importer fees, and trade show participation that are frequently excluded from initial budgets.",
   },
   {
-    step: "4",
-    title: "Introduction & Meeting Support",
-    body: "We facilitate introductory meetings, prepare briefing materials, and provide bilingual support during discussions.",
-  },
-  {
-    step: "5",
-    title: "Follow-up Coordination",
-    body: "We maintain contact with distributors after initial meetings and coordinate next steps on your behalf.",
+    title: "Timeline Realism",
+    body: "Japan B2B relationships operate on measured timelines. We provide an honest assessment of what is achievable within 6, 12, and 24-month horizons.",
   },
 ];
 
-const HOME_FAQS = [
+const DECISION_OUTPUTS = [
+  "Fit / no-fit summary — a direct assessment of Japan market readiness.",
+  "Entry pathway outline — distributor-based, direct import, or trade show approach.",
+  "Budget range framing — indicative cost structure by entry model.",
+  "Distributor search recommendation — whether to proceed and on what timeline.",
+  "Regulatory checklist — product-specific compliance gaps to address.",
+  "Next-step decision memo — a written summary of findings and recommended actions.",
+];
+
+const SYSTEM_PATHWAYS = [
   {
-    question: "How to export from Malaysia to Japan?",
-    answer:
-      "Exporting to Japan requires regulatory mapping, product documentation compliance, distributor qualification, and pre-shipment validation. Each step must be sequenced to avoid delays at customs or rejection at the distributor level.",
+    label: "Export Pathway",
+    detail: "Structured guidance for companies ready to export from Malaysia to Japan, covering documentation, compliance, and importer coordination.",
+    anchor: "export from Malaysia to Japan",
   },
   {
-    question: "What are Japan import requirements for Malaysian products?",
-    answer:
-      "Requirements vary by product category. Core documentation includes a commercial invoice, packing list, certificate of origin, and any sector-specific certification such as food safety or halal documentation. Japanese labelling standards apply at point of sale.",
+    label: "Distributor Search",
+    detail: "A structured search process to identify and qualify the right distribution partner for your product in Japan.",
+    anchor: "find a reliable distributor in Japan",
   },
   {
-    question: "How does Malaysia–Japan FTA reduce tariffs?",
-    answer:
-      "The Malaysia–Japan EPA provides preferential tariff rates for qualifying goods. Exporters must hold a valid Certificate of Origin (Form MJEPA) issued by MITI or an approved body, and the goods must satisfy rules of origin criteria.",
+    label: "Trade Show Preparation",
+    detail: "Selecting, preparing for, and following up on Japan B2B trade shows as part of a market entry strategy.",
+    anchor: null,
   },
   {
-    question: "What compliance is required for Japan supermarkets?",
-    answer:
-      "Supermarket channel entry requires Japanese-language labelling compliant with the Food Labelling Standards Act, distributor capability to handle import logistics, and often category buyer approval before listing.",
-  },
-  {
-    question: "How to assess export readiness for Japan market?",
-    answer:
-      "An export readiness assessment evaluates regulatory alignment, pricing viability at Japan retail or wholesale levels, certification gaps, labelling compliance, and whether the company has the operational capacity to support a Japan distributor relationship.",
+    label: "Local Presence Coordination",
+    detail: "Japan-based coordination for meetings, distributor visits, and relationship management — without requiring relocation.",
+    anchor: "local presence in Japan",
   },
 ];
 
 export default function Home() {
   const title = pageTitle();
-  const description = `${siteConfig.brandLine} ${siteConfig.primaryIntent}`;
+  const description = `${siteConfig.brandLine} — ${siteConfig.primaryIntent}`;
 
   return (
     <>
       <SEOHead path="/" title={title} description={description} />
 
-      {/* Step 7 — inject FAQPage JSON-LD for homepage FAQs */}
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(HOME_FAQ_JSONLD)}
@@ -125,25 +123,18 @@ export default function Home() {
 
       <main className="max-w-5xl mx-auto px-6 py-16 space-y-20">
 
-        {/* Hero — Steps 2 & 3 */}
+        {/* A — Hero */}
         <section className="max-w-2xl">
           <p className="text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-4">
             {siteConfig.domain}
           </p>
 
-          {/* Step 2 — updated H1, primary keyword instance 1 */}
           <h1 className="text-3xl font-semibold text-neutral-900 leading-tight mb-4">
-            Export from Malaysia to Japan — Structural Market Entry Advisory
+            Japan Market Entry Consultation
           </h1>
 
-          {/* Step 3 — hero paragraph, primary keyword instance 2 */}
           <p className="text-sm text-neutral-600 leading-relaxed mb-8">
-            Export from Malaysia to Japan requires regulatory alignment, tariff
-            optimisation under the Malaysia–Japan FTA, structured distributor
-            qualification, product labelling compliance, and disciplined market
-            entry sequencing. This page outlines the execution framework
-            Malaysian companies must follow before shipment and channel
-            expansion.
+            {"NeoiDigital offers structured japan market entry consultation for Malaysia-based companies evaluating expansion into Japan. This is a qualification and decision-clarity engagement — not a sales call."}
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -154,31 +145,21 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-block border border-neutral-300 text-neutral-700 text-sm font-medium px-6 py-3 hover:border-neutral-600 hover:text-neutral-900"
             >
-              Japan Market Hub →
+              Japan market entry guide for Malaysian businesses →
             </a>
           </div>
         </section>
 
-        {/* Step 4 — What This Page Covers */}
-        <section className="border-t border-gray-200 pt-10">
-          <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
-            What This Page Covers
+        {/* B — What a Japan Market Entry Consultation Covers */}
+        <section className="border-t border-neutral-200 pt-10">
+          <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 mb-4">
+            What a Japan Market Entry Consultation Covers
           </h2>
-          <p className="mt-4 text-gray-600 max-w-3xl text-sm leading-relaxed">
-            This page provides a structural overview of exporting from Malaysia
-            to Japan, including regulatory requirements, FTA utilisation,
-            compliance strategy, distributor entry models, and export readiness
-            evaluation.
+          <p className="text-sm text-neutral-600 leading-relaxed mb-8 max-w-3xl">
+            {"Each session is structured to help companies understand japan market entry cost and timeline before committing resources to distributor search or trade show preparation."}
           </p>
-          <ul className="mt-8 space-y-3 text-gray-700 text-sm leading-relaxed">
-            {[
-              "Japan import regulations applicable to Malaysian exporters",
-              "Product compliance and labelling requirements for the Japan market",
-              "Malaysia–Japan FTA tariff optimisation strategy",
-              "Halal and supermarket channel entry considerations",
-              "Step-by-step export execution roadmap",
-              "Structural export readiness assessment framework",
-            ].map((item) => (
+          <ul className="space-y-3 text-neutral-700 text-sm leading-relaxed">
+            {CONSULTATION_COVERS.map((item) => (
               <li key={item} className="flex items-start gap-2">
                 <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-neutral-900" />
                 <span>{item}</span>
@@ -187,58 +168,54 @@ export default function Home() {
           </ul>
         </section>
 
-        {/* Site Identity / Positioning */}
+        {/* C — Who It Is For / Not For */}
         <section className="border-t border-neutral-200 pt-10">
-          <h2 className="text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
-            Site Focus
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="border-l-2 border-neutral-900 pl-4">
-              <p className="text-xs font-semibold text-neutral-500 uppercase tracking-wide mb-1">
-                Primary Intent
-              </p>
-              <p className="text-sm text-neutral-800 leading-relaxed">
-                {siteConfig.primaryIntent}
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-6">
+                Who This Consultation Is For
+              </h2>
+              <ul className="space-y-3 text-sm text-neutral-700 leading-relaxed">
+                {FOR_LIST.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-neutral-900" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="border-l-2 border-neutral-300 pl-4">
-              <p className="text-xs font-semibold text-neutral-500 uppercase tracking-wide mb-1">
-                Who We Serve
-              </p>
-              <p className="text-sm text-neutral-600 leading-relaxed">
-                Malaysian and ASEAN-based SMEs and exporters looking to enter
-                the Japan B2B market.
-              </p>
+
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-900 mb-6">
+                Who It Is Not For
+              </h2>
+              <ul className="space-y-3 text-sm text-neutral-600 leading-relaxed">
+                {NOT_FOR_LIST.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-neutral-400" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            {siteConfig.localPresence && (
-              <div className="border-l-2 border-neutral-300 pl-4">
-                <p className="text-xs font-semibold text-neutral-500 uppercase tracking-wide mb-1">
-                  Where We Operate
-                </p>
-                <p className="text-sm text-neutral-600 leading-relaxed">
-                  Japan-based coordinator in Osaka, Japan — supporting
-                  meetings, distributor visits, and on-the-ground follow-up.
-                </p>
-              </div>
-            )}
           </div>
         </section>
 
-        {/* Step 5 — mid-page H2 with primary keyword (instance 3) + How We Work */}
+        {/* D — Initial Risk Assessment */}
         <section className="border-t border-neutral-200 pt-10">
-          <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 mb-8">
-            Step-by-Step Framework to Export from Malaysia to Japan
+          <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 mb-4">
+            Initial Risk Assessment
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            {HOW_WE_WORK.map((item) => (
-              <div key={item.step}>
-                <p className="text-xs font-semibold text-neutral-400 mb-2">
-                  Step {item.step}
-                </p>
+          <p className="text-sm text-neutral-600 leading-relaxed mb-8 max-w-3xl">
+            {"The consultation functions as a japan market entry risk assessment call — identifying structural risks before they become operational problems. Four risk areas are reviewed:"}
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {RISK_ITEMS.map((item) => (
+              <div key={item.title} className="border-l-2 border-neutral-200 pl-4">
                 <p className="text-sm font-semibold text-neutral-900 mb-1">
                   {item.title}
                 </p>
-                <p className="text-xs text-neutral-500 leading-relaxed">
+                <p className="text-sm text-neutral-600 leading-relaxed">
                   {item.body}
                 </p>
               </div>
@@ -246,50 +223,175 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Social Proof */}
+        {/* E — What You Leave With */}
         <section className="border-t border-neutral-200 pt-10">
-          <h2 className="text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
-            What We Bring
+          <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 mb-4">
+            What You Leave With
           </h2>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {siteConfig.socialProofBullets.map((bullet) => (
-              <li key={bullet} className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 bg-neutral-900" />
-                <span className="text-sm text-neutral-700">{bullet}</span>
+          <p className="text-sm text-neutral-600 leading-relaxed mb-8 max-w-3xl">
+            Each consultation produces a structured decision memo. The six outputs are:
+          </p>
+          <ul className="space-y-3 text-sm text-neutral-700 leading-relaxed">
+            {DECISION_OUTPUTS.map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 bg-neutral-900" />
+                <span>{item}</span>
               </li>
             ))}
           </ul>
         </section>
 
-        {/* Step 6 — Visible FAQ block with 5 targeted questions */}
+        {/* F — Common Questions Answered */}
         <section className="border-t border-neutral-200 pt-10">
           <h2 className="text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
             Common Questions
           </h2>
           <dl className="divide-y divide-neutral-200">
-            {HOME_FAQS.map((item) => (
-              <div key={item.question} className="py-6">
-                <dt className="text-sm font-semibold text-neutral-900 mb-2">
-                  {item.question}
-                </dt>
-                <dd className="text-sm text-neutral-600 leading-relaxed">
-                  {item.answer}
-                </dd>
-              </div>
-            ))}
+            <div className="py-6">
+              <dt className="text-sm font-semibold text-neutral-900 mb-2">
+                Should my Malaysia business enter the Japan market?
+              </dt>
+              <dd className="text-sm text-neutral-600 leading-relaxed">
+                The answer depends on product fit, export readiness, and channel availability. The consultation provides a structured assessment based on your specific product and company stage — not a generalised recommendation.
+              </dd>
+            </div>
+            <div className="py-6">
+              <dt className="text-sm font-semibold text-neutral-900 mb-2">
+                How do Malaysian companies access a structured consultation?
+              </dt>
+              <dd className="text-sm text-neutral-600 leading-relaxed">
+                {"A free japan market entry consultation for malaysian companies is available through the Japan Market Hub. Qualification is required — the session is designed for companies with export-ready products and a defined target channel."}
+              </dd>
+            </div>
+            <div className="py-6">
+              <dt className="text-sm font-semibold text-neutral-900 mb-2">
+                Where is NeoiDigital based?
+              </dt>
+              <dd className="text-sm text-neutral-600 leading-relaxed">
+                {"NeoiDigital operates from Osaka, Japan. Companies that want to talk to japan market entry consultant in japan — rather than a remote generalist — can request a consultation through the hub. Our team works within the Japan market with direct access to distributor and trade channel networks."}
+              </dd>
+            </div>
           </dl>
         </section>
 
-        {/* Bottom CTA */}
+        {/* G — Structural Context */}
+        <section className="border-t border-neutral-200 pt-10">
+          <h2 className="text-2xl font-semibold tracking-tight text-neutral-900 mb-4">
+            Part of the Japan Market Entry System
+          </h2>
+          <p className="text-sm text-neutral-600 leading-relaxed mb-8 max-w-3xl">
+            This consultation page is one component within a broader Japan market entry system. Companies that complete the consultation are positioned to move into the following pathways:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {SYSTEM_PATHWAYS.map((item) => (
+              <div key={item.label} className="border-l-2 border-neutral-200 pl-4">
+                <p className="text-sm font-semibold text-neutral-900 mb-1">
+                  {item.label}
+                </p>
+                <p className="text-sm text-neutral-600 leading-relaxed">
+                  {item.detail}
+                </p>
+                {item.anchor && (
+                  <p className="mt-2 text-xs text-neutral-400">
+                    Related: {item.anchor}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 pt-6 border-t border-neutral-100">
+            <p className="text-sm text-neutral-500">
+              All pathways are accessible through the{" "}
+              <a
+                href={siteConfig.hubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-neutral-700 hover:text-neutral-900"
+              >
+                Japan Market Hub
+              </a>
+              .
+            </p>
+          </div>
+        </section>
+
+        {/* H — Coverage Map */}
+        <section className="border-t border-neutral-200 pt-10">
+          <h2 className="text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-2">
+            Coverage Map
+          </h2>
+          <p className="text-xs text-neutral-400 mb-8">
+            Common consultation topics addressed on this page.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xs font-semibold tracking-wide text-neutral-500 uppercase mb-3">
+                Main Topics
+              </h3>
+              <ul className="space-y-2">
+                {siteConfig.mainKeywords.map((kw) => (
+                  <li key={kw} className="text-sm text-neutral-800 font-medium">
+                    {kw}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xs font-semibold tracking-wide text-neutral-500 uppercase mb-3">
+                Related Topics
+              </h3>
+              <ul className="space-y-1">
+                {siteConfig.supportingKeywords.map((kw) => (
+                  <li key={kw} className="text-sm text-neutral-600">
+                    {kw}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xs font-semibold tracking-wide text-neutral-500 uppercase mb-3">
+                Specific Questions
+              </h3>
+              <ul className="space-y-1">
+                {siteConfig.longTailKeywords.slice(0, 5).map((kw) => (
+                  <li key={kw} className="text-sm text-neutral-500">
+                    {kw}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* I — FAQ Preview (3) */}
+        <section className="border-t border-neutral-200 pt-10">
+          <h2 className="text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-6">
+            Consultation FAQs
+          </h2>
+          <dl className="divide-y divide-neutral-200">
+            {[siteConfig.faq[0], siteConfig.faq[1], siteConfig.faq[7]].map(
+              (item) => (
+                <div key={item.question} className="py-6">
+                  <dt className="text-sm font-semibold text-neutral-900 mb-2">
+                    {item.question}
+                  </dt>
+                  <dd className="text-sm text-neutral-600 leading-relaxed">
+                    {item.answer}
+                  </dd>
+                </div>
+              )
+            )}
+          </dl>
+        </section>
+
+        {/* J — Final CTA */}
         <section className="border-t border-neutral-200 pt-10">
           <div className="max-w-xl">
             <h2 className="text-xl font-semibold text-neutral-900 mb-3">
-              Ready to evaluate your Japan market options?
+              If you are evaluating Japan expansion, start with structured clarity.
             </h2>
             <p className="text-sm text-neutral-500 mb-6 leading-relaxed">
-              We work with Malaysian SMEs at different stages of Japan market
-              readiness. The first step is a direct conversation about your
-              product, pricing, and target channel.
+              The consultation is the first structured step — a direct review of your product, channel options, cost and timeline reality, and a clear recommendation on whether and how to proceed.
             </p>
             <CTA />
           </div>

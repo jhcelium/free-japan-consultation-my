@@ -468,10 +468,10 @@ export const SITE_PRESETS: Record<string, SiteConfig> = {
   // ── 7 ──────────────────────────────────────────────────────
   "free-japan-consultation": {
     domain: "free-japan-consultation.neoidigital.com",
-    siteName: "Japan Market Entry Consultation",
-    brandLine: "Talk to a Japan-based consultant before committing to market entry.",
+    siteName: "NeoiDigital",
+    brandLine: "Japan Market Entry Consultation",
     primaryIntent:
-      "We offer a structured strategy call for Malaysian SMEs to assess Japan market fit, understand timelines, and identify the right entry approach — at no cost.",
+      "Structured consultation for Malaysia-based companies evaluating Japan market entry strategy, cost, timeline, and distributor approach.",
     mainKeywords: [
       "japan market entry consultation",
       "free japan market entry consulting",
@@ -491,51 +491,67 @@ export const SITE_PRESETS: Record<string, SiteConfig> = {
       "japan market entry risk assessment call",
     ],
     primaryCTA: {
-      label: "Book a Free Strategy Call",
-      href: "mailto:hello@neoidigital.com?subject=Free Japan Market Entry Consultation",
+      label: "Request consultation",
+      href: "https://www.japan-market.neoidigital.com/",
     },
     hubLink: HUB_LINK,
     company: "NeoiDigital",
     localPresence: true,
     socialProofBullets: [
-      "Japan-based consultant — not a remote generalist",
-      "30-minute focused call with a structured agenda",
-      "Honest assessment of Japan market fit for your product",
-      "No sales pressure — objective market readiness feedback",
-      "Follow-up summary email after each consultation",
+      "Structured assessment of product-market fit.",
+      "Entry cost and timeline breakdown.",
+      "Distributor and channel structure clarity.",
+      "Regulatory and labeling risk review.",
+      "Decision memo outlining next steps.",
     ],
     faq: [
       {
-        question: "What happens during the free consultation?",
+        question: "What is included in a Japan market entry consultation?",
         answer:
-          "We review your product, target channel, pricing, and readiness. You receive a direct assessment of Japan market fit, key risks, and a suggested first step.",
+          "The consultation covers product-market fit evaluation, entry channel options, distributor pathway assessment, regulatory and labeling requirements, timeline estimation, and entry cost framing. You receive a structured review of where your product stands against Japan market conditions.",
       },
       {
-        question: "Is there any obligation after the free call?",
+        question: "Is the consultation really free?",
         answer:
-          "No. The consultation is independent of any engagement. We provide our honest view, and you decide if and how to proceed.",
+          "Yes. The initial consultation is provided at no charge. It is a qualification step — we assess whether your product and company are at a stage where a Japan entry engagement would produce results.",
       },
       {
-        question: "What should I prepare before the call?",
+        question: "How long does a consultation session take?",
         answer:
-          "Product specification or catalogue, current pricing structure, target customer type (retail, B2B, wholesale), and any existing certifications.",
+          "A standard session runs 45 to 60 minutes. The agenda is structured to cover product fit, channel options, cost and timeline indicators, and a clear next-step recommendation.",
       },
       {
-        question: "How long does the call take?",
+        question: "What preparation is required before the call?",
         answer:
-          "30 minutes. We keep it focused so both parties get useful output within the time.",
+          "Prepare a product specification or catalogue, your current export pricing, target customer type (retail, B2B, or wholesale), and any existing certifications. The more specific your brief, the more useful the consultation output.",
       },
       {
-        question: "What if Japan is not the right market for my product?",
+        question: "Can you estimate Japan market entry cost?",
         answer:
-          "We say so directly. If Japan is not appropriate at this stage, we explain the gaps and what would need to change before re-evaluating.",
+          "We provide a cost range framing during the consultation based on the entry model selected — distributor-based, direct import, or trade show — along with typical timeline milestones. This is an estimation framework, not a fixed quote.",
+      },
+      {
+        question: "Can you assess distributor readiness?",
+        answer:
+          "Yes. Distributor readiness review covers whether your product meets the category requirements Japan distributors expect, including pricing margins, MOQ, documentation, and labeling compliance.",
+      },
+      {
+        question: "Who is this consultation suitable for?",
+        answer:
+          "Malaysian SMEs with export-ready products, ASEAN manufacturers evaluating Japan as a target market, and companies that have completed basic export compliance but are unsure how to approach the Japan channel.",
+      },
+      {
+        question: "What happens after the consultation?",
+        answer:
+          "You receive a decision memo summarising fit assessment, entry pathway options, risk flags, and recommended next steps. There is no obligation to proceed further. The memo is yours to use internally for planning.",
       },
     ],
+    noindex: false,
   },
 };
 
 // ============================================================
 // ACTIVE SITE — change only this line per sub-site repo
 // ============================================================
-export const ACTIVE_SITE_KEY = "export-to-japan";
+export const ACTIVE_SITE_KEY = "free-japan-consultation";
 export const siteConfig: SiteConfig = SITE_PRESETS[ACTIVE_SITE_KEY];
