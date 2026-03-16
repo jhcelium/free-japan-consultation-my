@@ -50,7 +50,7 @@ export default function About() {
           <h1 className="text-3xl font-semibold text-neutral-900 leading-tight mb-4">
             Japan Market Entry Consultation — About NeoiDigital
           </h1>
-          <p className="text-sm text-neutral-600 leading-relaxed">
+          <p data-speakable="lead" className="text-sm text-neutral-600 leading-relaxed">
             {siteConfig.primaryIntent}
           </p>
         </section>
