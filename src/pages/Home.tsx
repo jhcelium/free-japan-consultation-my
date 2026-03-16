@@ -1,40 +1,8 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import SEOHead from "../components/SEOHead";
 import CTA from "../components/CTA";
 import { siteConfig } from "../content/site.config";
-import { pageTitle, serviceJsonLd } from "../lib/seo";
-
-const HOME_FAQ_JSONLD = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What is included in a Japan market entry consultation?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "The consultation covers product-market fit evaluation, entry channel options, distributor pathway assessment, regulatory and labeling requirements, timeline estimation, and entry cost framing.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Is the consultation really free?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. The initial consultation is provided at no charge. It is a qualification step to assess whether your product and company are at a stage where a Japan entry engagement would produce results.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What happens after the consultation?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "You receive a decision memo summarising fit assessment, entry pathway options, risk flags, and recommended next steps. There is no obligation to proceed further.",
-      },
-    },
-  ],
-};
+import { pageTitle, serviceJsonLd, howToJsonLd, faqPageJsonLd } from "../lib/seo";
 
 const CONSULTATION_COVERS = [
   "Market fit evaluation against Japan's B2B channel structure.",
@@ -114,16 +82,12 @@ export default function Home() {
 
   return (
     <>
-      <SEOHead path="/" title={title} description={description} />
-
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(HOME_FAQ_JSONLD)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(serviceJsonLd())}
-        </script>
-      </Helmet>
+      <SEOHead
+        path="/"
+        title={title}
+        description={description}
+        extraJsonLd={[serviceJsonLd(), howToJsonLd(), faqPageJsonLd()]}
+      />
 
       <main className="max-w-5xl mx-auto px-6 py-16 space-y-20">
 
@@ -137,7 +101,7 @@ export default function Home() {
             Japan Market Entry Consultation
           </h1>
 
-          <p className="text-sm text-neutral-600 leading-relaxed mb-8">
+          <p data-speakable="lead" className="text-sm text-neutral-600 leading-relaxed mb-8">
             {"NeoiDigital offers structured japan market entry consultation for Malaysia-based companies evaluating expansion into Japan. This is a qualification and decision-clarity engagement — not a sales call."}
           </p>
 
@@ -407,6 +371,35 @@ export default function Home() {
             >
               View all consultation FAQs →
             </Link>
+          </div>
+        </section>
+
+        {/* Regulatory Framework */}
+        <section className="border-t border-neutral-200 pt-10">
+          <h2 className="text-xl font-semibold text-neutral-900 mb-4">
+            Regulatory Oversight Context
+          </h2>
+          <div className="max-w-3xl space-y-3 text-sm text-neutral-600 leading-relaxed">
+            <p>
+              Product entry into the Japan market is regulated by several
+              authorities depending on product category. For food and beverage
+              products, the Ministry of Health, Labour and Welfare (MHLW) and
+              the Consumer Affairs Agency (CAA) enforce the Food Sanitation Act
+              and the Food Labelling Standards Act respectively.
+            </p>
+            <p>
+              The CAA oversees labelling compliance — including ingredient lists,
+              allergen declarations, nutritional information, and Japanese-language
+              requirements on all consumer-facing packaging. Non-compliance results
+              in product rejection at customs or recall from retail.
+            </p>
+            <p>
+              For non-food categories, METI (Ministry of Economy, Trade and
+              Industry) administers product safety standards, and PMDA
+              (Pharmaceuticals and Medical Devices Agency) regulates health
+              products and medical devices. Relevant regulatory requirements are
+              reviewed as part of the consultation.
+            </p>
           </div>
         </section>
 

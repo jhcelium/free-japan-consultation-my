@@ -24,16 +24,13 @@ if (!keyMatch) {
 const activeKey = keyMatch[1];
 
 // ── Find the preset block for the active key ─────────────────
-// Locate the quoted key in the SITE_PRESETS object
 const keyIndex = src.indexOf('"' + activeKey + '"');
 if (keyIndex === -1) {
   console.error("[generate-public] ERROR: Cannot find preset key '" + activeKey + "' in SITE_PRESETS");
   process.exit(1);
 }
 
-// Slice from the key to a reasonable preset block end
 const blockStart = keyIndex;
-// Find the matching closing brace for this preset (heuristic: next top-level "," + newline + 2 spaces)
 const rawBlock = src.slice(blockStart, blockStart + 4000);
 
 // ── Extract domain ────────────────────────────────────────────
@@ -41,35 +38,34 @@ const domainMatch = rawBlock.match(/domain\s*:\s*["']([^"']+)["']/);
 const domain = domainMatch ? domainMatch[1] : activeKey + ".neoidigital.com";
 
 // ── Extract noindex flag ──────────────────────────────────────
-// The noindex property appears as: noindex: true
 const noindexMatch = rawBlock.match(/noindex\s*:\s*(true|false)/);
 const noindex = noindexMatch ? noindexMatch[1] === "true" : false;
 
-// ── Build sitemap.xml ─────────────────────────────────────────
+// ── Build sitemap.xml (trailing-slash enforced) ──────────────
 const today = new Date().toISOString().split("T")[0];
 const baseUrl = "https://" + domain;
+
+const pages = [
+  { path: "/",       changefreq: "weekly",  priority: "1.0" },
+  { path: "/about/", changefreq: "monthly", priority: "0.8" },
+  { path: "/faq/",   changefreq: "monthly", priority: "0.8" },
+];
+
+const urlEntries = pages.map(function (p) {
+  return [
+    "  <url>",
+    "    <loc>" + baseUrl + p.path + "</loc>",
+    "    <lastmod>" + today + "</lastmod>",
+    "    <changefreq>" + p.changefreq + "</changefreq>",
+    "    <priority>" + p.priority + "</priority>",
+    "  </url>",
+  ].join("\n");
+});
 
 const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-  "  <url>",
-  "    <loc>" + baseUrl + "/</loc>",
-  "    <lastmod>" + today + "</lastmod>",
-  "    <changefreq>weekly</changefreq>",
-  "    <priority>1.0</priority>",
-  "  </url>",
-  "  <url>",
-  "    <loc>" + baseUrl + "/about</loc>",
-  "    <lastmod>" + today + "</lastmod>",
-  "    <changefreq>monthly</changefreq>",
-  "    <priority>0.8</priority>",
-  "  </url>",
-  "  <url>",
-  "    <loc>" + baseUrl + "/faq</loc>",
-  "    <lastmod>" + today + "</lastmod>",
-  "    <changefreq>monthly</changefreq>",
-  "    <priority>0.8</priority>",
-  "  </url>",
+  urlEntries.join("\n"),
   "</urlset>",
   "",
 ].join("\n");

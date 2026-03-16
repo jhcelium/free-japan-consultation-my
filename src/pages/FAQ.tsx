@@ -24,7 +24,7 @@ export default function FAQ() {
           <h1 className="text-3xl font-semibold text-neutral-900 leading-tight mb-4">
             Japan Market Entry Consultation — Frequently Asked Questions
           </h1>
-          <p className="text-sm text-neutral-600 leading-relaxed">
+          <p data-speakable="lead" className="text-sm text-neutral-600 leading-relaxed">
             Direct answers to the most common questions about the consultation
             process, what it covers, who it is for, and what to expect.
           </p>
