@@ -9,8 +9,8 @@ export function canonicalUrl(path: string): string {
 
 /** Build full page title */
 export function pageTitle(subtitle?: string): string {
-  if (!subtitle) return siteConfig.siteName;
-  return `${subtitle} | ${siteConfig.siteName}`;
+  if (!subtitle) return `${siteConfig.brandLine} | ${siteConfig.siteName}`;
+  return `${subtitle} — ${siteConfig.brandLine} | ${siteConfig.siteName}`;
 }
 
 /** JSON-LD: Organization */
@@ -55,6 +55,27 @@ export function webPageJsonLd(path: string, name: string, description: string) {
       "@type": "WebSite",
       url: `https://${siteConfig.domain}`,
     },
+  };
+}
+
+/** JSON-LD: Service */
+export function serviceJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: siteConfig.brandLine,
+    serviceType: "Japan Market Entry Consultation",
+    description: siteConfig.primaryIntent,
+    provider: {
+      "@type": "Organization",
+      name: siteConfig.company,
+      url: `https://${siteConfig.domain}`,
+    },
+    areaServed: [
+      { "@type": "Country", name: "Malaysia" },
+      { "@type": "Country", name: "Japan" },
+    ],
+    url: `https://${siteConfig.domain}`,
   };
 }
 

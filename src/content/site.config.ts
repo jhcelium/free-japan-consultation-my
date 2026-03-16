@@ -508,42 +508,42 @@ export const SITE_PRESETS: Record<string, SiteConfig> = {
       {
         question: "What is included in a Japan market entry consultation?",
         answer:
-          "The consultation covers product-market fit evaluation, entry channel options, distributor pathway assessment, regulatory and labeling requirements, timeline estimation, and entry cost framing. You receive a structured review of where your product stands against Japan market conditions.",
+          "Product-market fit assessment, entry channel recommendation (distributor, direct, or trade show), cost and timeline framing, regulatory and labeling gap review, and a written decision memo. One session, defined output.",
       },
       {
         question: "Is the consultation really free?",
         answer:
-          "Yes. The initial consultation is provided at no charge. It is a qualification step — we assess whether your product and company are at a stage where a Japan entry engagement would produce results.",
+          "Yes. No fee for the initial session. Qualification is required — it is designed for companies with an export-ready product, not early-stage ideas.",
       },
       {
         question: "How long does a consultation session take?",
         answer:
-          "A standard session runs 45 to 60 minutes. The agenda is structured to cover product fit, channel options, cost and timeline indicators, and a clear next-step recommendation.",
+          "45 to 60 minutes. The agenda is fixed: product review, channel options, cost and timeline indicators, risk flags, and a recommended next step.",
       },
       {
         question: "What preparation is required before the call?",
         answer:
-          "Prepare a product specification or catalogue, your current export pricing, target customer type (retail, B2B, or wholesale), and any existing certifications. The more specific your brief, the more useful the consultation output.",
+          "Product specification or catalogue, export pricing, target customer type (B2B or retail), and any existing certifications. The session runs more efficiently with a clear brief.",
       },
       {
         question: "Can you estimate Japan market entry cost?",
         answer:
-          "We provide a cost range framing during the consultation based on the entry model selected — distributor-based, direct import, or trade show — along with typical timeline milestones. This is an estimation framework, not a fixed quote.",
+          "We provide a cost range by entry model — distributor-based, direct import, or trade show. This is an indicative framework based on typical first-phase costs, not a fixed quote.",
       },
       {
         question: "Can you assess distributor readiness?",
         answer:
-          "Yes. Distributor readiness review covers whether your product meets the category requirements Japan distributors expect, including pricing margins, MOQ, documentation, and labeling compliance.",
+          "Yes. We review whether your pricing margins, MOQ, documentation, and labeling meet the category requirements Japan distributors typically require before agreeing to carry a product.",
       },
       {
         question: "Who is this consultation suitable for?",
         answer:
-          "Malaysian SMEs with export-ready products, ASEAN manufacturers evaluating Japan as a target market, and companies that have completed basic export compliance but are unsure how to approach the Japan channel.",
+          "Malaysian and ASEAN companies with an export-ready product, a defined target customer, and basic export compliance in place. Not suitable for idea-stage businesses.",
       },
       {
         question: "What happens after the consultation?",
         answer:
-          "You receive a decision memo summarising fit assessment, entry pathway options, risk flags, and recommended next steps. There is no obligation to proceed further. The memo is yours to use internally for planning.",
+          "You receive a written decision memo covering fit assessment, entry pathway options, key risks, and a specific next-step recommendation. No obligation to proceed.",
       },
     ],
     noindex: false,

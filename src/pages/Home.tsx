@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import SEOHead from "../components/SEOHead";
 import CTA from "../components/CTA";
 import { siteConfig } from "../content/site.config";
-import { pageTitle } from "../lib/seo";
+import { pageTitle, serviceJsonLd } from "../lib/seo";
 
 const HOME_FAQ_JSONLD = {
   "@context": "https://schema.org",
@@ -119,6 +120,9 @@ export default function Home() {
         <script type="application/ld+json">
           {JSON.stringify(HOME_FAQ_JSONLD)}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify(serviceJsonLd())}
+        </script>
       </Helmet>
 
       <main className="max-w-5xl mx-auto px-6 py-16 space-y-20">
@@ -147,6 +151,20 @@ export default function Home() {
             >
               Japan market entry guide for Malaysian businesses →
             </a>
+          </div>
+          <div className="flex flex-wrap gap-6 mt-6 text-sm">
+            <Link
+              to="/about"
+              className="text-neutral-500 underline hover:text-neutral-900"
+            >
+              About this consultation
+            </Link>
+            <Link
+              to="/faq"
+              className="text-neutral-500 underline hover:text-neutral-900"
+            >
+              Consultation FAQ
+            </Link>
           </div>
         </section>
 
@@ -382,6 +400,14 @@ export default function Home() {
               )
             )}
           </dl>
+          <div className="mt-4">
+            <Link
+              to="/faq"
+              className="text-sm text-neutral-700 underline hover:text-neutral-900"
+            >
+              View all consultation FAQs →
+            </Link>
+          </div>
         </section>
 
         {/* J — Final CTA */}
