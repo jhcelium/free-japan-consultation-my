@@ -47,6 +47,8 @@ export default function SEOHead({
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
+      <link rel="alternate" hrefLang="en-MY" href={canonical} />
+      <link rel="alternate" hrefLang="x-default" href={canonical} />
       <meta name="robots" content={robotsContent} />
 
       {/* Open Graph */}
