@@ -6,6 +6,8 @@
 export type FAQ = {
   question: string;
   answer: string;
+  /** Optional stable URL slug for /faq/{slug}/ answer pages */
+  slug?: string;
 };
 
 export type CTA = {
@@ -506,41 +508,49 @@ export const SITE_PRESETS: Record<string, SiteConfig> = {
     ],
     faq: [
       {
+        slug: "what-is-included-consultation",
         question: "What is included in a Japan market entry consultation?",
         answer:
           "Product-market fit assessment, entry channel recommendation (distributor, direct, or trade show), cost and timeline framing, regulatory and labeling gap review, and a written decision memo. One session, defined output.",
       },
       {
+        slug: "is-consultation-free",
         question: "Is the consultation really free?",
         answer:
           "Yes. No fee for the initial session. Qualification is required — it is designed for companies with an export-ready product, not early-stage ideas.",
       },
       {
+        slug: "how-long-is-session",
         question: "How long does a consultation session take?",
         answer:
           "45 to 60 minutes. The agenda is fixed: product review, channel options, cost and timeline indicators, risk flags, and a recommended next step.",
       },
       {
+        slug: "preparation-before-call",
         question: "What preparation is required before the call?",
         answer:
           "Product specification or catalogue, export pricing, target customer type (B2B or retail), and any existing certifications. The session runs more efficiently with a clear brief.",
       },
       {
+        slug: "estimate-entry-cost",
         question: "Can you estimate Japan market entry cost?",
         answer:
           "We provide a cost range by entry model — distributor-based, direct import, or trade show. This is an indicative framework based on typical first-phase costs, not a fixed quote.",
       },
       {
+        slug: "distributor-readiness",
         question: "Can you assess distributor readiness?",
         answer:
           "Yes. We review whether your pricing margins, MOQ, documentation, and labeling meet the category requirements Japan distributors typically require before agreeing to carry a product.",
       },
       {
+        slug: "who-is-consultation-for",
         question: "Who is this consultation suitable for?",
         answer:
           "Malaysian and ASEAN companies with an export-ready product, a defined target customer, and basic export compliance in place. Not suitable for idea-stage businesses.",
       },
       {
+        slug: "after-consultation",
         question: "What happens after the consultation?",
         answer:
           "You receive a written decision memo covering fit assessment, entry pathway options, key risks, and a specific next-step recommendation. No obligation to proceed.",

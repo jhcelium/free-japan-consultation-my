@@ -28,12 +28,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-sm text-neutral-500 hover:text-neutral-900">
+                <Link to="/about/" className="text-sm text-neutral-500 hover:text-neutral-900">
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="text-sm text-neutral-500 hover:text-neutral-900">
+                <Link to="/faq/" className="text-sm text-neutral-500 hover:text-neutral-900">
                   FAQ
                 </Link>
               </li>

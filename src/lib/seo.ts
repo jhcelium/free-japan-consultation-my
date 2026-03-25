@@ -1,3 +1,4 @@
+import type { FAQ } from "../content/site.config";
 import { siteConfig } from "../content/site.config";
 
 const SITE_URL = `https://${siteConfig.domain}`;
@@ -144,6 +145,25 @@ export function faqPageJsonLd() {
       },
     })),
     speakable: speakable(["h1", "dt", "dd"]),
+  };
+}
+
+/** FAQPage JSON-LD for a single Q&A answer asset (detail route). */
+export function faqSingleItemJsonLd(item: FAQ) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      },
+    ],
+    speakable: speakable(["h1", "[data-speakable='lead']"]),
   };
 }
 

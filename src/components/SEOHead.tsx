@@ -14,6 +14,8 @@ type Props = {
   title: string;
   description: string;
   isFaq?: boolean;
+  /** Force noindex,nofollow (e.g. soft 404) */
+  noIndex?: boolean;
   extraJsonLd?: Record<string, unknown>[];
 };
 
@@ -22,10 +24,12 @@ export default function SEOHead({
   title,
   description,
   isFaq = false,
+  noIndex = false,
   extraJsonLd = [],
 }: Props) {
   const canonical = canonicalUrl(path);
-  const robotsContent = siteConfig.noindex ? "noindex,nofollow" : "index,follow";
+  const robotsContent =
+    siteConfig.noindex || noIndex ? "noindex,nofollow" : "index,follow";
   const ogImage = `https://${siteConfig.domain}/og.png`;
 
   const jsonLdScripts = [

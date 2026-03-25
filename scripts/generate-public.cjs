@@ -32,6 +32,7 @@ if (keyIndex === -1) {
 
 const blockStart = keyIndex;
 const rawBlock = src.slice(blockStart, blockStart + 4000);
+const presetChunk = src.slice(blockStart, blockStart + 20000);
 
 // ── Extract domain ────────────────────────────────────────────
 const domainMatch = rawBlock.match(/domain\s*:\s*["']([^"']+)["']/);
@@ -45,11 +46,25 @@ const noindex = noindexMatch ? noindexMatch[1] === "true" : false;
 const today = new Date().toISOString().split("T")[0];
 const baseUrl = "https://" + domain;
 
+const faqSlugs = [];
+const slugIter = presetChunk.matchAll(/slug:\s*["']([^"']+)["']/g);
+for (const m of slugIter) {
+  faqSlugs.push(m[1]);
+}
+
 const pages = [
   { path: "/",       changefreq: "weekly",  priority: "1.0" },
   { path: "/about/", changefreq: "monthly", priority: "0.8" },
-  { path: "/faq/",   changefreq: "monthly", priority: "0.8" },
+  { path: "/faq/",   changefreq: "weekly",  priority: "0.9" },
 ];
+
+faqSlugs.forEach(function (s) {
+  pages.push({
+    path: "/faq/" + s + "/",
+    changefreq: "monthly",
+    priority: "0.7",
+  });
+});
 
 const urlEntries = pages.map(function (p) {
   return [
