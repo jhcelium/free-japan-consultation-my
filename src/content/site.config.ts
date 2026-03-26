@@ -3,11 +3,20 @@
 // ONE-FILE CONFIGURATION — edit only this file per sub-site
 // ============================================================
 
+export type FAQRelatedLink = {
+  slug: string;
+  label: string;
+};
+
 export type FAQ = {
   question: string;
   answer: string;
   /** Optional stable URL slug for /faq/{slug}/ answer pages */
   slug?: string;
+  /** Override meta description when the opening paragraph is long */
+  metaDescription?: string;
+  /** Linked follow-up questions on the answer page */
+  relatedLinks?: FAQRelatedLink[];
 };
 
 export type CTA = {
@@ -507,6 +516,20 @@ export const SITE_PRESETS: Record<string, SiteConfig> = {
       "Decision memo outlining next steps.",
     ],
     faq: [
+      {
+        slug: "who-should-book-a-japan-market-entry-consultation",
+        question: "Who Should Book a Japan Market Entry Consultation?",
+        metaDescription:
+          "Who should book a Japan market entry consultation: export-ready Malaysian and ASEAN companies clarifying fit, cost, timeline, and channel—not idea-stage or undocumented products.",
+        answer:
+          "You should book when you are a Malaysia- or ASEAN-based company with an export-ready product, basic export documentation in place, and a clear need to decide whether Japan B2B distribution is the right next step. The session is for qualification and decision clarity—not for early concept validation or a generic market tour.\n\nSuitable company profile: manufacturers or brand owners with a defined SKU, realistic pricing and MOQ, target channel (e.g. distributor, specialty retail, food service), and willingness to discuss regulatory and labeling gaps honestly. Teams that have already shipped or are close to shipping outside the home market tend to get the most from one session.\n\nNot ready yet: pure idea stage, no product specification or catalogue, no export pricing, or no importer- or distributor-compatible documentation. Retail-only or marketplace-only ambitions without a B2B pathway, or expectations of a guaranteed distributor introduction in one call, also fit better after more internal preparation.\n\nDecisions you can clarify in one session: whether your category and price point look viable for Japan in the near term; which entry model (distributor-led, direct import, trade show first) is most realistic; rough cost and timeline framing for a first phase; whether distributor conversations are likely to succeed with your current pack, certifications, and margins; and what a sensible next step would be if you proceed, pause, or stop.\n\nCommon mistakes before booking: treating the call as a sales pitch rather than an assessment; withholding pricing or MOQ; underestimating labeling and compliance lead time; expecting a fixed quote instead of a range; and booking before assigning someone who can speak to product, export, and commercial terms.\n\nIf this describes your company, a consultation is an appropriate first step. If not, preparing a short product brief and export checklist first usually produces a better outcome.",
+        relatedLinks: [
+          { slug: "who-is-consultation-for", label: "Who is this consultation suitable for?" },
+          { slug: "what-is-included-consultation", label: "What is included in a Japan market entry consultation?" },
+          { slug: "preparation-before-call", label: "What preparation is required before the call?" },
+          { slug: "is-consultation-free", label: "Is the consultation really free?" },
+        ],
+      },
       {
         slug: "what-is-included-consultation",
         question: "What is included in a Japan market entry consultation?",

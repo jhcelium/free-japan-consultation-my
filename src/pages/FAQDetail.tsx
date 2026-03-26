@@ -36,7 +36,8 @@ export default function FAQDetail() {
 
   const path = `faq/${slug}/`;
   const title = pageTitle(item.question);
-  const description = faqAnswerPreview(item.answer, 155);
+  const description =
+    item.metaDescription ?? faqAnswerPreview(item.answer, 155);
 
   return (
     <>
@@ -46,7 +47,11 @@ export default function FAQDetail() {
         description={description}
         extraJsonLd={[faqSingleItemJsonLd(item)]}
       />
-      <FAQAnswerLayout question={item.question} answer={item.answer} />
+      <FAQAnswerLayout
+        question={item.question}
+        answer={item.answer}
+        relatedLinks={item.relatedLinks}
+      />
     </>
   );
 }
