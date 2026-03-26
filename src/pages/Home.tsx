@@ -3,6 +3,7 @@ import SEOHead from "../components/SEOHead";
 import CTA from "../components/CTA";
 import { siteConfig } from "../content/site.config";
 import { pageTitle, serviceJsonLd, howToJsonLd, faqPageJsonLd } from "../lib/seo";
+import { faqIndexPath } from "../lib/faq-assets";
 
 const CONSULTATION_COVERS = [
   "Market fit evaluation against Japan's B2B channel structure.",
@@ -118,18 +119,30 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap gap-6 mt-6 text-sm">
             <Link
-              to="/about"
+              to="/about/"
               className="text-neutral-500 underline hover:text-neutral-900"
             >
               About this consultation
             </Link>
-            <Link
-              to="/faq"
-              className="text-neutral-500 underline hover:text-neutral-900"
-            >
-              Consultation FAQ
-            </Link>
           </div>
+        </section>
+
+        {/* Consultation FAQ — primary entry from home */}
+        <section className="border border-neutral-200 px-6 py-8 max-w-2xl">
+          <h2 className="text-sm font-semibold text-neutral-900 uppercase tracking-wide mb-2">
+            Consultation questions
+          </h2>
+          <p className="text-sm text-neutral-600 leading-relaxed mb-4">
+            Practical answers on whether to book, what is covered, who the session
+            is for, and what you can clarify before committing further time or
+            budget.
+          </p>
+          <Link
+            to={faqIndexPath()}
+            className="text-sm font-medium text-neutral-900 underline hover:text-neutral-700"
+          >
+            Open the consultation FAQ hub →
+          </Link>
         </section>
 
         {/* B — What a Japan Market Entry Consultation Covers */}
@@ -366,7 +379,7 @@ export default function Home() {
           </dl>
           <div className="mt-4">
             <Link
-              to="/faq"
+              to={faqIndexPath()}
               className="text-sm text-neutral-700 underline hover:text-neutral-900"
             >
               View all consultation FAQs →

@@ -1,7 +1,10 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { siteConfig } from "../content/site.config";
 
 export default function Header() {
+  const { pathname } = useLocation();
+  const faqActive = pathname.startsWith("/faq");
+
   return (
     <header className="border-b border-neutral-200 bg-white">
       {/* Logo bar — centered */}
@@ -37,21 +40,19 @@ export default function Header() {
             Home
           </NavLink>
           <NavLink
-            to="/about"
+            to="/about/"
             className={({ isActive }) =>
               `text-sm ${isActive ? "text-neutral-900 font-medium" : "text-neutral-500 hover:text-neutral-900"}`
             }
           >
             About
           </NavLink>
-          <NavLink
-            to="/faq"
-            className={({ isActive }) =>
-              `text-sm ${isActive ? "text-neutral-900 font-medium" : "text-neutral-500 hover:text-neutral-900"}`
-            }
+          <Link
+            to="/faq/"
+            className={`text-sm ${faqActive ? "text-neutral-900 font-medium" : "text-neutral-500 hover:text-neutral-900"}`}
           >
             FAQ
-          </NavLink>
+          </Link>
           <a
             href={siteConfig.hubLink}
             target="_blank"

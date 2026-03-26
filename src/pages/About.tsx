@@ -38,7 +38,7 @@ export default function About() {
 
   return (
     <>
-      <SEOHead path="/about" title={title} description={description} />
+      <SEOHead path="/about/" title={title} description={description} />
 
       <main className="max-w-5xl mx-auto px-6 py-16 space-y-16">
 
@@ -186,7 +186,7 @@ export default function About() {
               ← Consultation overview
             </Link>
             <Link
-              to="/faq"
+              to="/faq/"
               className="text-neutral-700 underline hover:text-neutral-900"
             >
               Consultation FAQ →
